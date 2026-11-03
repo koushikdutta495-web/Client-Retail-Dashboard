@@ -260,7 +260,8 @@ The analysis focuses on identifying potential business opportunities and operati
 Add screenshots of the actual dashboard pages to the repository.
 
 ### Executive Overview
-![Retail Executive Overview](https://github.com/koushikdutta495-web/Client-Retail-Dashboard/blob/main/Executive%20overview.pn)
+![Retail Executive Overview](https://github.com/koushikdutta495-web/Client-Retail-Dashboard/blob/main/Executive%20overview.png
+)
 
 ### Product & Customer Analysis
 ![Retail Product and Customer Analysis](https://github.com/koushikdutta495-web/Client-Retail-Dashboard/blob/main/Product%20Analysis.png)
