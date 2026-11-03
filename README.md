@@ -1,4 +1,4 @@
-# 🛍️ End-to-End Retail E-Commerce Sales & Operations Analysis
+# 🛍️ Client Retail Sales Dashboard | Power BI
 
 **Tools:** Python | Pandas | MySQL | Power BI | Power Query | DAX
 
