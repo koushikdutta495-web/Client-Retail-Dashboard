@@ -1,206 +1,306 @@
-# 🛍️ Client Retail Sales Dashboard | Power BI
+# 🛍️ End-to-End Retail E-Commerce Sales & Operations Analysis
+
+**Tools:** Python | Pandas | MySQL | Power BI | Power Query | DAX
 
 ## 📌 Project Overview
 
-The **Client Retail Sales Dashboard** is an interactive Power BI project designed to analyze retail sales performance, profitability, customer behavior, product performance, and order trends.
+This is an end-to-end retail data analytics project based on a business case for **NovaMart Retail Pvt. Ltd.**, covering the reporting period January–December 2025.
 
-The dashboard transforms retail transaction data into meaningful business insights, helping stakeholders monitor sales, evaluate profitability, identify high-performing products, and understand customer and order patterns.
+The project started with a raw CSV export from a retail order management system. The objective was to transform unprepared data into a reliable analytical dataset, perform SQL-based business analysis, and develop an interactive Power BI dashboard to support management decision-making.
 
-## 🎯 Business Objectives
+I completed the project through three major stages:
 
-The main objectives of this project are to:
+1. **Python & Pandas:** Data profiling, cleaning, validation, and preparation.
+2. **MySQL:** Business-focused SQL analysis to answer key management questions.
+3. **Power BI:** Data modeling, DAX calculations, KPI development, and interactive dashboard creation.
 
-- Monitor overall retail sales and profit performance.
-- Analyze sales and profitability across different product categories.
-- Identify products generating high sales but low or negative profit.
-- Understand customer segments and customer types.
-- Analyze order status and delivery performance.
-- Compare sales performance across regions and sales channels.
-- Track monthly sales and profit trends.
+The analysis focuses on sales performance, profitability, product and category performance, customer segments, sales channels, discounts, returns, cancellations, and delivery performance.
+
+## 🎯 Business Problem
+
+Management could monitor total sales in the system but lacked a clear understanding of what was actually driving revenue and profit.
+
+The business needed answers to questions such as:
+
+- Where is the company making money, and where is it losing money?
+- Which products and categories need management attention?
+- Are discounts helping sales or hurting profitability?
+- Which regions, customer segments, and sales channels perform best?
+- How are returns and cancellations affecting business performance?
+- Is delivery performance affecting the overall business?
+
+The purpose of this project was to turn raw transactional data into meaningful business insights that could help management investigate these areas.
 
 ## 🛠️ Tools & Technologies
 
-- **Microsoft Power BI** — Dashboard development and visualization
-- **Power Query** — Data cleaning and transformation
-- **DAX** — KPI calculations and business measures
-- **Data Modeling** — Organizing retail data for analysis
-- **Interactive Reporting** — Drill-through and report navigation
+| Tool / Technology | Purpose |
+|---|---|
+| Python | Raw data inspection, cleaning, and validation |
+| Pandas | Data manipulation and preprocessing |
+| MySQL | SQL-based business analysis |
+| Microsoft Power BI | Interactive dashboard development |
+| Power Query | Data transformation |
+| DAX | KPI calculations and analytical measures |
+| Data Modeling | Organizing data for reporting and analysis |
 
-## 📂 Dataset Information
+## 🔄 End-to-End Project Workflow
 
-The project uses a retail dataset stored in the `retail_clients` table.
+### 1. Data Profiling, Cleaning & Preparation – Python
 
-The dataset contains information about orders, customers, products, sales, discounts, profit, shipping, and delivery.
+Used Python and Pandas to inspect and clean the raw CSV before performing business analysis.
 
-**Important columns include:**
+**Key activities:**
 
-- `order_id`
-- `order_date`
-- `ship_date`
-- `city`
-- `state`
-- `region`
-- `zone`
-- `customer_id`
-- `cust_segmnt`
-- `category`
-- `product_name`
-- `quantity`
-- `unit_price`
-- `discount`
-- `gross_sales`
-- `discount_amt`
-- `net_sales`
-- `prod_cost`
-- `shipping_cost`
-- `profit`
-- `payment_method`
-- `sales_channel`
-- `order_status`
-- `returned`
-- `delivery_status`
-- `customer_age`
-- `promised_date`
-- `customer_type`
-- `cust_rating`
-- `age_group`
+- Checked dataset dimensions, column names, and data types.
+- Identified missing values and duplicate records.
+- Inspected completely blank rows.
+- Standardized column names for SQL and Power BI.
+- Identified unnecessary or redundant columns.
+- Corrected numeric and date data types.
+- Handled missing values using appropriate methods rather than blindly replacing nulls with zero.
+- Standardized inconsistent text values and removed unwanted spaces.
+- Checked invalid values, including abnormal discount values, impossible ages, and invalid dates.
+- Checked duplicate Order IDs and duplicate records.
+- Prepared the final cleaned CSV for further analysis.
+- Maintained a data-cleaning log to document changes.
 
-A calendar table named `Calender Date` is also used for date-based analysis.
+**Tools:** Python, Pandas, Jupyter Notebook / Google Colab.
+
+### 2. SQL-Based Business Analysis – MySQL
+
+Imported the cleaned dataset into MySQL and performed business-focused analysis to answer the client's questions.
+
+**SQL concepts used:**
+
+- SELECT, WHERE and ORDER BY
+- Aggregate functions
+- GROUP BY and HAVING
+- CASE statements
+- JOIN operations
+- Subqueries
+- Common Table Expressions (CTEs)
+- Window Functions
+- Date-based analysis
+- Month-over-Month (MoM) growth calculations
+- Ranking and profitability analysis
+
+**Business analysis performed:**
+
+1. Calculated total orders, quantity, net sales, and profit.
+2. Analyzed monthly sales and profit trends.
+3. Identified categories generating the highest sales and profit.
+4. Identified high-sales but low/negative-profit products.
+5. Compared sales and profit across regions.
+6. Analyzed profitability by customer segment.
+7. Compared sales channels by sales, orders, and profit.
+8. Examined the relationship between discount levels and profit margins.
+9. Identified products receiving the highest average discounts.
+10. Analyzed return rates by product and category.
+11. Compared cancelled, returned, and delivered orders.
+12. Calculated the percentage of delayed deliveries.
+13. Identified regions with the highest delayed-delivery rates.
+14. Identified the top 10 customers by net sales.
+15. Investigated customers with high sales but unusually low profit.
+16. Identified the top 10 products by profit.
+17. Ranked the top 3 products by profit within each category using window functions.
+18. Calculated month-over-month sales growth.
+19. Analyzed profit margins by category and region.
+20. Identified business areas requiring further investigation.
+
+### 3. Dashboard Development – Power BI
+
+Used the cleaned and analyzed retail data to build an interactive, management-facing Power BI dashboard.
+
+**Key activities:**
+
+- Prepared and organized data for reporting.
+- Created data models and relationships.
+- Developed DAX measures for business KPIs.
+- Designed KPI cards and analytical visuals.
+- Created category, region, product, and customer analysis.
+- Developed profitability and discount-related analysis.
+- Added interactive filters and report navigation.
+- Created a product-level details page for deeper analysis.
 
 ## 📊 Key Performance Indicators (KPIs)
 
-The dashboard includes the following DAX measures:
+The project uses the following business KPIs:
 
-| KPI | Description |
+| KPI | Business Meaning |
 |---|---|
-| Total Net Sales | Total sales after discounts |
-| Total Profit | Total profit generated |
-| Total Orders | Distinct count of order IDs |
-| Profit Margin | Total Profit / Total Net Sales |
-| AOV | Average Order Value |
-| High Sales Low Profit | Identifies products with above-average sales and zero or negative profit |
+| Total Net Sales | Overall revenue after discounts |
+| Total Profit | Profit after product and shipping costs |
+| Profit Margin % | Profit as a percentage of net sales |
+| Total Orders | Count of valid orders |
+| Total Quantity | Total units sold |
+| Average Order Value (AOV) | Net sales divided by total orders |
+| Average Discount % | Average discount applied to orders |
+| Return Rate % | Returned orders as a percentage of relevant orders |
+| Cancellation Rate % | Cancelled orders as a percentage of orders |
+| On-Time Delivery % | On-time deliveries as a percentage of delivered orders |
 
-## 📈 Dashboard Pages
+## 📈 Power BI Dashboard Pages
 
 ### 1. Executive Overview
 
-Provides a high-level summary of overall retail business performance.
+Provides management with a high-level summary of retail business performance.
 
 **Key analytical areas:**
-- Total Net Sales
-- Total Profit
-- Total Orders
-- Profit Margin
-- Average Order Value (AOV)
-- Monthly sales and profit trends
-- Regional sales performance
-- Category-wise sales and profitability
-- Order status and customer segment analysis
+- Total Net Sales, Total Profit, Profit Margin, Total Orders, and AOV.
+- Monthly Net Sales and Profit trends.
+- Sales and Profit by Category.
+- Sales and Profit by Region.
+- Profit Margin by Category.
+- Top 10 Products by Profit.
+- Sales Channel performance.
+- Customer Segment performance.
 
 ### 2. Product & Customer Analysis
 
-Focuses on product-level profitability and customer behavior.
+Focuses on understanding product profitability, customer behavior, and factors influencing business performance.
 
 **Key analytical areas:**
-- Product-wise sales and profit
-- Category-wise performance
-- High Sales / Low Profit product identification
-- Discount impact on profitability
-- Customer segment analysis
-- Customer type distribution
-- Sales channel performance
+- Product and category performance.
+- High Sales / Low Profit product analysis.
+- Discount versus Profit / Profit Margin analysis.
+- Customer Segment performance.
+- Customer Type analysis.
+- Product-level profitability comparison.
 
 ### 3. Details
 
-Provides a detailed view of product performance through a drill-through page.
+Provides a more detailed view of product-level performance to support further investigation.
 
 **Key analytical areas:**
+- Product Name.
+- Total Orders.
+- Total Net Sales.
+- Total Profit.
+- Profit Margin.
+- Average Order Value.
+
+## 🔍 Dashboard Filters & Interactivity
+
+The project supports business-focused filtering and exploration using relevant report filters, including:
+
+- Date / Month
+- Region
+- Category
+- Customer Segment
+- Sales Channel
+- Order Status
+- Customer Type
 - Product Name
-- Total Orders
-- Total Net Sales
-- Total Profit
-- Profit Margin
-- Average Order Value
 
-This page allows users to explore detailed product performance based on the selected context from other report pages.
+Interactive visuals allow users to explore different dimensions of retail performance.
 
-## 🔍 Interactive Features
+## 💡 Key Business Areas Investigated
 
-- Date-based analysis
-- Region-wise filtering
-- Product and category analysis
-- Customer segment and customer type filtering
-- Order status and sales channel analysis
-- Product-level drill-through
-- Interactive cross-filtering between visuals
+The analysis focuses on identifying potential business opportunities and operational concerns:
 
-## 💡 Business Questions Explored
+- **Profitability:** Products and categories generating high sales but low or negative profit.
+- **Discount Strategy:** How different discount levels relate to profit margins.
+- **Regional Performance:** Differences in sales and profitability across regions.
+- **Customer Analysis:** Customer segments and customers contributing to sales and profit.
+- **Sales Channels:** Comparison of sales, order volume, and profit across channels.
+- **Returns & Cancellations:** Understanding order outcomes and return patterns.
+- **Delivery Performance:** Monitoring delayed deliveries and regional delivery performance.
 
-This dashboard is designed to answer important retail business questions:
+*Specific findings and recommendations should be added here from the actual SQL results and management report, rather than using assumed business conclusions.*
 
-1. What are the total net sales and total profit?
-2. Which product categories generate the highest sales?
-3. Which categories or products generate low or negative profit?
-4. Which products have high sales but low or negative profitability?
-5. How does discounting relate to product profitability?
-6. Which regions contribute the most to net sales?
-7. How do sales and profit change month over month?
-8. Which customer segments contribute to sales?
-9. How are orders distributed across different order and delivery statuses?
-10. Which sales channels contribute to overall revenue?
+## 📁 Project Deliverables
 
-## 💼 Business Value
-
-The dashboard demonstrates how retail transaction data can support:
-
-- Sales performance monitoring
-- Product and category profitability analysis
-- Identification of high-sales, low-profit products
-- Customer segment analysis
-- Regional performance comparison
-- Order and delivery monitoring
-- Better data-driven business decisions
-
-These are potential business applications of the analysis, rather than claims of verified financial improvements.
+- Cleaned retail dataset in CSV format.
+- Python notebook/script documenting the data-cleaning process.
+- MySQL database and table containing the cleaned data.
+- SQL queries answering the business questions.
+- Power BI dashboard with KPIs, charts, and interactive filters.
+- Management report containing cleaning summary, KPI summary, key findings, possible business reasons, recommendations, and data limitations.
 
 ## 🧠 Skills Demonstrated
 
-- Data cleaning and transformation
+**Data Preparation**
+- Data Profiling
+- Data Cleaning
+- Missing Value Handling
+- Duplicate Detection
+- Data Type Correction
+- Data Validation
+
+**SQL & Data Analysis**
+- MySQL
+- Aggregations
+- Joins
+- Subqueries
+- CTEs
+- Window Functions
+- Ranking
+- MoM Analysis
+- Profitability Analysis
+
+**Business Intelligence**
+- Power BI
 - Power Query
-- DAX measure creation
-- Data modeling
-- KPI development
-- Sales and profitability analysis
-- Customer segmentation
-- Product performance analysis
-- Drill-through reporting
-- Interactive dashboard development
+- DAX
+- Data Modeling
+- KPI Development
+- Interactive Dashboard Design
+- Business Reporting
+
+**Business Understanding**
+- Retail Sales Analysis
+- Product Profitability
+- Customer Segmentation
+- Discount Analysis
+- Return & Cancellation Analysis
+- Delivery Performance Analysis
 
 ## 📷 Dashboard Preview
 
-Add screenshots of your actual Power BI dashboard to the repository.
+Add screenshots of the actual dashboard pages to the repository.
 
 ### Executive Overview
-![Executive Overview](https://github.com/koushikdutta495-web/Client-Retail-Dashboard/blob/main/Executive%20overview.png)
+![Retail Executive Overview](https://github.com/koushikdutta495-web/Client-Retail-Dashboard/blob/main/Executive%20overview.pn)
 
 ### Product & Customer Analysis
-![Product and Customer Analysis](https://github.com/koushikdutta495-web/Client-Retail-Dashboard/blob/main/Product%20Analysis.png)
+![Retail Product and Customer Analysis](https://github.com/koushikdutta495-web/Client-Retail-Dashboard/blob/main/Product%20Analysis.png)
 
 ### Details
-![Product Details](https://github.com/koushikdutta495-web/Client-Retail-Dashboard/blob/main/Details%20tab.png)
+![Retail Product Details](https://github.com/koushikdutta495-web/Client-Retail-Dashboard/blob/main/Details%20tab.png)
 
-## 📁 Project Files
+## 📁 Suggested Repository Structure
 
-- `Client-Retail-Dashboard.pbit` — Power BI report template
-- `README.md` — Project documentation
-- `screenshots/` — Dashboard preview images
+```text
+End-to-End-Retail-Data-Analytics/
+│
+├── README.md
+│
+├── Python/
+│   └── Retail_Data_Cleaning.ipynb
+│
+├── SQL/
+│   └── Retail_Business_Analysis.sql
+│
+├── PowerBI/
+│   └── Client-Retail-Dashboard.pbit
+│
+├── Dataset/
+│   └── retail_clients.csv
+│
+└── screenshots/
+    ├── retail-executive-overview.png
+    ├── retail-product-customer-analysis.png
+    └── retail-product-details.png
+```
 
 ## 🚀 Project Outcome
 
-This project demonstrates practical skills in analyzing retail business data using Power BI, Power Query, and DAX.
+Successfully completed an end-to-end retail data analytics workflow, starting from raw data preparation and progressing through SQL-based business analysis to interactive Power BI reporting.
 
-It showcases how interactive dashboards can help stakeholders understand sales performance, monitor profitability, explore customer behavior, and identify potential business opportunities.
+This project provided practical experience in handling real-world data-quality challenges, writing SQL queries to solve business problems, developing meaningful KPIs, and presenting analytical information through interactive dashboards.
 
-This project is part of my ongoing journey to develop practical data analytics skills and build my Data Analyst portfolio.
+It demonstrates my ability to approach a business problem systematically and work across the major stages of a data analytics project.
+
+**I am continuously learning and building practical projects to strengthen my skills as a Data Analyst.**
 
 **Feedback and suggestions are welcome!**
