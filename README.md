@@ -269,30 +269,7 @@ Add screenshots of the actual dashboard pages to the repository.
 ### Details
 ![Retail Product Details](https://github.com/koushikdutta495-web/Client-Retail-Dashboard/blob/main/Details%20tab.png)
 
-## 📁 Suggested Repository Structure
 
-```text
-End-to-End-Retail-Data-Analytics/
-│
-├── README.md
-│
-├── Python/
-│   └── Retail_Data_Cleaning.ipynb
-│
-├── SQL/
-│   └── Retail_Business_Analysis.sql
-│
-├── PowerBI/
-│   └── Client-Retail-Dashboard.pbit
-│
-├── Dataset/
-│   └── retail_clients.csv
-│
-└── screenshots/
-    ├── retail-executive-overview.png
-    ├── retail-product-customer-analysis.png
-    └── retail-product-details.png
-```
 
 ## 🚀 Project Outcome
 
